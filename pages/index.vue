@@ -143,7 +143,6 @@
       watch(account, (newAccount) => {
       }, { immediate: true }); // { immediate: true } pour exécuter le watch dès l'initialisation
   
-  
       const connectors = [
         new MetaMaskConnector({
           appUrl: "http://localhost:3000/",
