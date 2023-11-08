@@ -1,0 +1,35 @@
+{
+  "private": true,
+  "scripts": {
+    "build": "nuxt build",
+    "dev": "nuxt dev",
+    "generate": "nuxt generate",
+    "preview": "nuxt preview",
+    "postinstall": "nuxt prepare"
+  },
+  "devDependencies": {
+    "@bg-dev/nuxt-naiveui": "^1.5.2",
+    "@nuxt/devtools": "^1.0.0",
+    "@nuxtjs/google-fonts": "^3.0.2",
+    "@nuxtjs/i18n": "^8.0.0-rc.5",
+    "buffer": "^6.0.3",
+    "nuxt": "^3.2.3",
+    "process": "^0.11.10",
+    "sass": "^1.69.4"
+  },
+  "dependencies": {
+    "@ethersproject/abi": "^5.7.0",
+    "@fontsource-variable/radio-canada": "^5.0.18",
+    "@walletconnect/ethereum-provider": "^2.10.2",
+    "@walletconnect/modal": "^2.6.2",
+    "@walletconnect/web3-provider": "^1.8.0",
+    "ethers": "5.7.2",
+    "https-browserify": "^1.0.0",
+    "os-browserify": "^0.3.0",
+    "sass-loader": "^13.3.2",
+    "url": "^0.11.0",
+    "vfonts": "^0.0.3",
+    "vite-plugin-node-polyfills": "^0.16.0",
+    "vue-dapp": "^0.12.0-beta.7"
+  }
+}
