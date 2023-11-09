@@ -1,83 +1,53 @@
 <template>
-    <!-- <nav>
-    <div class="container containermenu">
-        <div class="navstart">
-          <img src="@/assets/img/WeFundz.svg" alt="logo"/><span class="titlenav">WeFundz</span>
-        </div>
-        <div class="navcenter">
-          <div class="menu">
-            <NuxtLink
-              v-for="menuItem in menuItems"
-              :key="menuItem.id"
-              :to="menuItem.href"
-              class="menu-item"
-              :class="{ 'is-active': activeItem === menuItem.id }"
-              @click="handleItemClick(menuItem.id, menuItem.color)"
-            >
-            <div class="menu-icon" >
-            <naive-icon v-if="menuItem.name" :name="menuItem.name"></naive-icon></div> {{ $t(menuItem.label) }}
-          </NuxtLink>
-            <span class="menu-indicator" :style="{ width: indicatorWidth + 'px', left: indicatorLeft + 'px', backgroundColor: activeColor }"></span>
-          </div>
-        </div>
-        <div class="navend" span="0 400:1 600:2 800:3">
-            <div class="burger" @click="showmenu = true">
-              <input type="checkbox" id="checkboxburger" >
-              <label for="checkboxburger" class="toggleburger checkboxburgerchecked">
-                <div class="barburger bar--topburger"></div>
-                <div class="barburger bar--middleburger"></div>
-                <div class="barburger bar--bottomburger"></div>
-              </label>
-            </div>
-  
-          <div class="contain-navend">
-            
-            <n-button round="true" color="#e3759b" @click="showModal = true" >
-              <div class="menu-icon" >
-              <naive-icon name="ph-plus"></naive-icon></div> {{ $t('nav_create_button') }}
-            </n-button>
-            <n-button round="true" v-if="!isActivated"  @click="open" color="#e3759b" ghost >
-              <div class="menu-icon" >
-              <naive-icon name="ph-wallet"></naive-icon></div> {{ $t('nav_connectwallet_button') }}
-            </n-button>
-            <n-dropdown :options="optionsprofil" @select="handleSelectprofil" v-if="isActivated" >
-              <n-button round="true" class="accountdropdown">
-                <div class="menu-icon" ><naive-icon name="ph-user"></naive-icon></div>
-                 {{ address ? `${address.slice(0, 8)}...` : '' }}
-                 <div class="menu-icon" ><naive-icon name="ph-caret-down-fill"></naive-icon></div>
-              
-                </n-button>
-            </n-dropdown>
-           
-  
-            <n-dropdown
-            round="true"
-            placement="bottom-start"
-            trigger="hover"
-            size="small"
-            :options="options"
-            @select="handleSelect"
-          >
-          <n-button round="true" quaternary>
-            <div class="menu-icon" ><naive-icon name="ph-globe"></naive-icon></div> {{ $t('nav_lang_text') }}
-          </n-button>
-          </n-dropdown>
-          </div>
-        </div>
-  
-      </div>
-  </nav> -->
-  
-  <div class="container">
-    <n-button  @click="open" color="#e3759b" ghost>
-        <div class="menu-icon" >
-        <naive-icon name="ph-wallet"></naive-icon></div> {{ $t('nav_connectwallet_button') }}
-    </n-button>
+    <div class="lang">
+    <n-dropdown
+    placement="bottom-start"
+    trigger="hover"
+    size="small"
+    :options="options"
+    @select="handleSelect"
+  >
+  <n-button round="true" quaternary>
+    <div class="menu-icon" ><naive-icon name="ph-globe"></naive-icon></div> {{ $t('nav_lang_text') }}
+  </n-button>
+  </n-dropdown>
+</div>
 
-    <p>Address: {{address}}</p>
-    <p>Chain: {{chainId}}</p>
+  <div class="container">
+    <div class="inside-container">
+        <n-button @click="open" color="#e3759b" round="true">
+            <template v-if="!isActivated">
+              <div class="menu-icon">
+                <naive-icon name="ph-wallet"></naive-icon>
+              </div>
+              {{ $t('nav_connectwallet_button') }}
+            </template>
+          
+            <template v-else>
+              <div class="menu-icon">
+                <naive-icon name="ph-arrows-left-right"></naive-icon> <!-- Assuming you want to change the icon -->
+              </div>
+              {{ $t('nav_connectwallet_button_switch') }}
+            </template>
+          </n-button>
+
+
+
+    <n-card :title="$t('title')">
+
+        <template v-if="!isActivated">
+            {{ $t('message') }}
+          </template>
+        
+          <template v-else>
+            <p>Address: {{address}}</p>
+            <p>Chain: {{chainId}}</p>
+          </template>
+
+       
+      </n-card>
   </div> 
- 
+</div>
   
   <vd-board :connectors="connectors" dark/>
   
@@ -91,37 +61,6 @@
   
   const { address, chainId, signer, isActivated, account } = useEthers();
   
-  const renderIcon = (iconClass) => {
-    return () => h(NaiveIcon, { name: iconClass });
-  };
-  
-  const optionsprofil = [
-    {
-      label: 'My Campaign',
-      icon: renderIcon('ph-note'),
-      link: "/",
-      key: "Campaign",
-    },
-    {
-      label: "My Profil",
-      icon: renderIcon('ph-user'),
-      link: "/",
-      key: "Profil",
-    },
-    {
-      label: "Setting",
-      icon: renderIcon('ph-gear-six'),
-      link: "/",
-      key: "Setting",
-    },
-    {
-      label: "Disconnected",
-      icon: renderIcon('ph-sign-out'),
-      link: "/",
-      key: "Disconnected",
-    }
-  ];
-  
   const options = [
     {
       label: "Français",
@@ -133,14 +72,13 @@
     }
   ];
   
-    
-  
   export default {
     setup() {
       const { open } = useBoard();
         
       // Utiliser watch pour surveiller les changements de l'adresse du compte
-      watch(account, (newAccount) => {
+      watch(isActivated, (newAccount) => {
+        isActivated.value = !!newAccount;
       }, { immediate: true }); // { immediate: true } pour exécuter le watch dès l'initialisation
   
       const connectors = [
@@ -175,7 +113,16 @@
         connectors, 
         open, 
         signer, 
-        isActivated
+        isActivated,
+        options,
+        handleSelect(key) {
+        console.log(key)
+        locale.value = key;
+        if(key) {
+
+        }
+        // message.info(String(key));
+      }
       };
     },
   };

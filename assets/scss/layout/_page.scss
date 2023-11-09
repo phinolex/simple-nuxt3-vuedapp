@@ -4,6 +4,21 @@ body {
     font-weight: 600;
   }
   
+  .lang {
+    position: fixed;
+    width: 100%;
+    text-align: right;
+    z-index: 99;
+  }
+
+  button {
+    margin: 15px !important;
+  }
+
+  .n-icon-wrapper {
+    padding-right: 3px;
+  }
+
   .container {
     width: 100%;
     height: 100vh;
@@ -12,4 +27,8 @@ body {
     align-items: center; /* Ceci centre verticalement */
     justify-content: center; /* Ceci centre horizontalement */
     position: relative;
+    .inside-container {
+      width:600px;
+      text-align: center;
+    }
   }

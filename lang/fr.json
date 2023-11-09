@@ -1,9 +1,13 @@
 {
   "nav_create_button": "Créer une cagnotte",
   "nav_connectwallet_button": "Connecter un portefeuille",
+  "nav_connectwallet_button_switch": "Changer de portefeuille",
 
   "nav_home_text": "Accueil",
   "nav_search_text": "Soutenir une cause",
   "nav_about_text": "À propos",
-  "nav_lang_text": "FR"
+  "nav_lang_text": "FR",
+
+  "message": "Pour accéder à vos informations, veuillez connecter votre portefeuille de crypto-monnaie.",
+  "title": "Information portefeuille :"
 }

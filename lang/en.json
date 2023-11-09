@@ -1,9 +1,13 @@
 {
   "nav_create_button": "Launch a Campaign",
   "nav_connectwallet_button": "Connect Wallet",
+  "nav_connectwallet_button_switch": "Switch Wallet",
 
   "nav_home_text": "Home",
   "nav_search_text": "Support a Cause",
   "nav_about_text": "About",
-  "nav_lang_text": "EN"
+  "nav_lang_text": "EN",
+
+  "message": "To access your information, please connect your cryptocurrency wallet.",
+  "title": "Wallet Information :"
 }
