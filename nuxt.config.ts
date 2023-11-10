@@ -6,16 +6,16 @@ export default defineNuxtConfig({
     app: {
       head: {
         htmlAttrs: { lang: "en" },
-        title: 'WeFundz',
+        title: 'Nuxt Vue-Dapp',
         meta: [
-          { hid: 'description', name: 'description', content: 'Location longue durée de voitures de qualité à Nantes, Angers et en Vendée pour les entreprises et professions libérales. Découvrez notre large gamme de véhicules disponibles en LLD.' },
+          { hid: 'description', name: 'description', content: 'Nuxt Vue-Dapp' },
           { name: 'author', content: 'WeFundz' },
           { hid: 'robots', name: 'robots', content: 'index, follow' },
-          { name: 'geo.placename', content: 'Nantes, Angers, Vendée, France' },
+          { name: 'geo.placename', content: 'Paris' },
           { name: 'language', content: 'fr' },
-          { name: 'keywords', content: 'Location longue durée, Voitures, Maine-et-Loire, Vendée, Nantes, Angers, Location entreprise, AutoLLD, LLD, LLD entreprise' },
-          { property: 'og:image', content: 'URL de l\'image à afficher sur la page d\'accueil' },
-          { name: 'twitter:image', content: 'URL de l\'image à afficher sur Twitter pour la page d\'accueil' },
+          { name: 'keywords', content: 'Nuxt Vue-Dapp' },
+          { property: 'og:image', content: '' },
+          { name: 'twitter:image', content: '' },
         ],
       },
     },
