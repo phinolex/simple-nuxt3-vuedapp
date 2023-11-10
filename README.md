@@ -1,7 +1,14 @@
-# Nuxt 3 Minimal Starter
+# Nuxt 3 VUE-DAPP WITH NAIVEUI
 
-Look at the [Nuxt 3 documentation](https://nuxt.com/docs/getting-started/introduction) to learn more.
+This repository houses an simple enhanced version of the vue-dapp plugin, now fully compatible with Nuxt 3 and integrated with WalletConnect v2, NaiveUI and SASS for a seamless blockchain interaction experience.
 
+![alt text](https://i.imgur.com/qEJKWQi.png)
+
+![alt text](https://i.imgur.com/svArOMY.png)
+
+![alt text](https://i.imgur.com/5Ht5cJQ.png)
+
+![alt text](https://i.imgur.com/egAli6u.png)
 ## Setup
 
 Make sure to install the dependencies:

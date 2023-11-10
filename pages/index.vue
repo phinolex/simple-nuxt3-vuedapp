@@ -59,7 +59,7 @@
   import { NaiveIcon } from "#components" // Needs to be manually imported
   import { MetaMaskConnector, WalletConnectConnector, useBoard, useEthers } from 'vue-dapp';
   
-  const { address, chainId, signer, isActivated, account } = useEthers();
+  const { address, chainId, signer, isActivated, account, isConnected } = useEthers();
   
   const options = [
     {
@@ -76,10 +76,6 @@
     setup() {
       const { open } = useBoard();
         
-      // Utiliser watch pour surveiller les changements de l'adresse du compte
-      watch(isActivated, (newAccount) => {
-        isActivated.value = !!newAccount;
-      }, { immediate: true }); // { immediate: true } pour exécuter le watch dès l'initialisation
   
       const connectors = [
         new MetaMaskConnector({
