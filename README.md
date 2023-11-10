@@ -1,6 +1,6 @@
 # Nuxt 3 VUE-DAPP WITH NAIVEUI
 
-This repository houses an simple enhanced version of the vue-dapp plugin, now fully compatible with Nuxt 3 and integrated with WalletConnect v2, NaiveUI and SASS for a seamless blockchain interaction experience.
+This repository houses an simple enhanced version of the [vue-dapp](https://github.com/vu3th/vue-dapp) plugin, now fully compatible with Nuxt 3 and integrated with WalletConnect v2, NaiveUI and SASS for a seamless blockchain interaction experience.
 
 ![alt text](https://i.imgur.com/qEJKWQi.png)
 
